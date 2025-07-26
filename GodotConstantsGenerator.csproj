@@ -6,7 +6,7 @@
     
     <!-- Tool Configuration -->
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>godot-constants</ToolCommandName>
+    <ToolCommandName>godot-constants-generator</ToolCommandName>
     
     <!-- Metadata -->
     <Authors>Michael Domanek</Authors>
