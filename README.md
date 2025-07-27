@@ -22,7 +22,7 @@ dotnet tool install --global GodotConstantsGenerator
 
 To run the tool, use the following command in your terminal or command prompt:
 ```bash
-godot-constants [options]
+godot-constants-generator [options]
 ```
 It works without any parameters, all options are optional. \
 If no parameters are provided, it will infer the project name from the `.csproj` file and generate all files in the `scripts/generated` directory.

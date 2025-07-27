@@ -82,17 +82,13 @@ string actionsName = parseResult.GetValue(actionsNameOption);
 string groupsName = parseResult.GetValue(groupsNameOption);
 string layersName = parseResult.GetValue(layersNameOption);
 
-Console.WriteLine($"output directory: {output}");
 string outputRelativePath = Path.GetRelativePath(
 	Directory.GetCurrentDirectory(),
 	output.FullName
 );
 string effectiveNamespace = ns ?? $"{project}.{outputRelativePath.Replace('/', '.').Replace('\\', '.')}";
 
-Console.WriteLine($"Project: {project}");
-Console.WriteLine($"Output: {output}");
-Console.WriteLine($"Namespace: {effectiveNamespace}");
-
+Console.WriteLine($"Started generating files...");
 const string godotProjectPath = "project.godot";
 
 if (!File.Exists(godotProjectPath)) {
@@ -177,7 +173,7 @@ if (!noActions) {
 
 	string actionPath = Path.Combine(outputDirectory, $"{actionsName}.cs");
 	File.WriteAllText(actionPath, actionBuilder.ToString());
-	Console.WriteLine($"Generated: {actionPath} with {inputActions.Count} Actions");
+	Console.WriteLine($"Generated: {actionsName}.cs with {inputActions.Count} input actions");
 }
 
 // Generate CollisionLayers.cs
@@ -193,7 +189,7 @@ if (!noLayers) {
 
 	string layersPath = Path.Combine(outputDirectory, $"{layersName}.cs");
 	File.WriteAllText(layersPath, layersBuilder.ToString());
-	Console.WriteLine($"Generated: {layersPath} with {collisionLayers.Count} Layers");
+	Console.WriteLine($"Generated: {layersName}.cs with {collisionLayers.Count} layer names");
 }
 
 // Generate Groups.cs
@@ -210,7 +206,7 @@ if (!noGroups) {
 
 	string groupsPath = Path.Combine(outputDirectory, $"{groupsName}.cs");
 	File.WriteAllText(groupsPath, groupsBuilder.ToString());
-	Console.WriteLine($"Generated: {groupsPath} with {groups.Count} Groups");
+	Console.WriteLine($"Generated: {groupsName}.cs with {groups.Count} group names");
 }
 
 return 0;
