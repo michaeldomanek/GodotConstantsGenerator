@@ -2,6 +2,14 @@
 
 A .NET CLI tool that extracts input actions, collision layers, and group names from your `project.godot` and generates strongly-typed C# constants.
 
+## Godot Plugin
+
+> [!NOTE]  
+> **Recommended**\
+> I also created the Godot plugin [ConstantsGeneratorPlugin](https://github.com/michaeldomanek/ConstantsGeneratorPlugin)
+> that automatically generates these constants by listening to Project Settings changes.
+
+
 ## Features
 - Parses `project.godot` to extract:
     - Input actions
